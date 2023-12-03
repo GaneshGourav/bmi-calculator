@@ -1,3 +1,9 @@
+import { Container } from "@chakra-ui/react"
+
 export const Login = () =>{
-    return<></>
+    return<>
+    <Container></Container>
+    
+    
+    </>
 }
