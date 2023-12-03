@@ -7,6 +7,7 @@ export const Signup = () =>{
     <Container>
         <Text>Signup here !</Text>
         <Input type="text" autoCorrect="on" spellCheck />
+        <Input type="text" autoCorrect="on" spellCheck />
 
 
     </Container>
