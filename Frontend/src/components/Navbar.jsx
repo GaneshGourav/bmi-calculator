@@ -1,5 +1,6 @@
 import { Container, useDisclosure } from "@chakra-ui/react";
 import { NavLink } from "react-router-dom";
+import logo from "../Assests/logo.png"
 
 export const Navbar = () => {
 
@@ -11,7 +12,9 @@ export const Navbar = () => {
 
   return (
     <Container display={"flex"} justifyContent={"space-around"} border={"1px solid teal"}  alignItems={"center"} maxW={"100%"} height={"70px"} fontFamily={"cursive"} fontWeight={"600"}> 
+      <img src={logo} alt="" width={"90px"} />
       <Container display={'flex'} justifyContent={"space-around"} >
+      
       {link.map((el) => (
         <NavLink
           to={el.to}
