@@ -31,7 +31,7 @@ export const Navbar = () => {
       <Container display={'flex'} justifyContent={"space-around"} alignItems={"center"}  maxW={"200px"}>
 
       <NavLink
-        to={"/profile"}
+        to={"/account-signin"}
         style={({ isActive, isPending, isTransitioning }) => {
           return {
             fontWeight: isActive ? "bold" : "",
@@ -44,7 +44,7 @@ export const Navbar = () => {
        
       </NavLink>
       <NavLink
-        to={"/profile"}
+        to={"/account-login"}
         style={({ isActive, isPending, isTransitioning }) => {
           return {
             fontWeight: isActive ? "bold" : "",
