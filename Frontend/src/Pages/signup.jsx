@@ -6,9 +6,9 @@ export const Signup = () =>{
     
     <Container>
         <Text>Signup here !</Text>
-        <Input type="text" autoCorrect="on" spellCheck />
-        <Input type="email" autoCorrect="on" spellCheck />
-        <Input type="password" autoCorrect="on" spellCheck />
+        <Input type="text" placeholder="username" autoCorrect="on" spellCheck />
+        <Input type="email" placeholder="email" autoCorrect="on" spellCheck />
+        <Input type="password" placeholder="password" autoCorrect="on" spellCheck />
 
 
     </Container>
