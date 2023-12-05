@@ -1,4 +1,4 @@
-import { Container, Input, Text } from "@chakra-ui/react"
+import { Button, Container, Input, Text } from "@chakra-ui/react"
 
 export const Login = () =>{
     return<>
@@ -8,8 +8,9 @@ export const Login = () =>{
           fontFamily={"cursive"}
           marginTop={"30px"}
           marginBottom={"30px"}>Login here !</Text>
-        <Input type="email" placeholder="email" autoCorrect="on" spellCheck />
-        <Input type="password" placeholder="password" autoCorrect="on" spellCheck />
+        <Input type="email" placeholder="Enter your Email" autoCorrect="on" spellCheck /><br /><br />
+        <Input type="password" placeholder="Enter your Password" autoCorrect="on" spellCheck /><br /> <br />
+        <Button>Login</Button>
     </Container>
     
     
