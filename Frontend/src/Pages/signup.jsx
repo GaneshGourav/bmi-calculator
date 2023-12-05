@@ -12,6 +12,7 @@ export const Signup = () =>{
 
 
     </Container>
+    <h1>hello</h1>
     
     
     </>

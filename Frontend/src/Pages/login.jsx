@@ -1,4 +1,4 @@
-import { Container, Text } from "@chakra-ui/react"
+import { Container, Input, Text } from "@chakra-ui/react"
 
 export const Login = () =>{
     return<>
