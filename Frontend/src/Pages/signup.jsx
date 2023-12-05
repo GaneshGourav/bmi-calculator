@@ -1,12 +1,19 @@
 import { Button, Container, Input, Text } from "@chakra-ui/react";
+import { useState } from "react";
 
 export const Signup = () => {
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
   return (
     <>
-      <Container    border={"1px solid teal"}
+      <Container
+        border={"1px solid teal"}
         padding={"30px"}
         borderRadius={"8px"}
-        marginTop={"5%"}>
+        marginTop={"5%"}
+      >
         <Text
           color={"teal"}
           fontWeight={"bold"}
@@ -22,6 +29,8 @@ export const Signup = () => {
           border={"1px solid teal"}
           autoCorrect="on"
           spellCheck
+          autoFocus
+          onChange={(e)=>setUsername(e.target.value)}
         />{" "}
         <br />
         <br />
@@ -31,6 +40,7 @@ export const Signup = () => {
           border={"1px solid teal"}
           autoCorrect="on"
           spellCheck
+          onChange={(e)=>setEmail(e.target.value)}
         />
         <br />
         <br />
@@ -40,6 +50,7 @@ export const Signup = () => {
           border={"1px solid teal"}
           autoCorrect="on"
           spellCheck
+          onChange={(e)=>setPassword(e.target.value)}
         />
         <br />
         <br />
@@ -54,7 +65,7 @@ export const Signup = () => {
           <span
             style={{ color: "teal", fontWeight: "bold", fontFamily: "cursive" }}
           >
-           <a href="/account-login">login here</a> 
+            <a href="/account-login">login here</a>
           </span>{" "}
         </Text>
       </Container>

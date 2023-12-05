@@ -1,6 +1,13 @@
 import { Button, Container, Input, Text } from "@chakra-ui/react";
+import { useState } from "react";
 
 export const Login = () => {
+    const [email,setEmail] = useState("");
+    const [password,setPassword] = useState("");
+    const handleLogin = () =>{
+        const loginDetails ={email,password}
+        console.log(loginDetails)
+    }
   return (
     <>
       <Container
@@ -18,7 +25,7 @@ export const Login = () => {
         >
           Login here !
         </Text>
-        <form>
+        <form onSubmit={handleLogin} >
           <Input
             type="email"
             placeholder="Enter your Email"
@@ -26,6 +33,8 @@ export const Login = () => {
             autoCorrect="on"
             spellCheck
             autoFocus
+            autoComplete="current-password"
+            onChange={(e)=>setEmail(e.target.value)}
           />
           <br />
           <br />
@@ -35,6 +44,7 @@ export const Login = () => {
             border={"1px solid teal"}
             autoCorrect="on"
             spellCheck
+            onChange={(e)=>setPassword(e.target.value)}
           />
           <br /> <br /> <br />
           <Button colorScheme="teal" width={"100%"} type="submit">
