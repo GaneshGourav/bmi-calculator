@@ -3,7 +3,10 @@ import { Button, Container, Input, Text } from "@chakra-ui/react";
 export const Signup = () => {
   return (
     <>
-      <Container>
+      <Container    border={"1px solid teal"}
+        padding={"30px"}
+        borderRadius={"8px"}
+        marginTop={"5%"}>
         <Text
           color={"teal"}
           fontWeight={"bold"}
