@@ -1,18 +1,19 @@
-import { Container, Input, Text } from "@chakra-ui/react"
+import { Button, Container, Input, Text } from "@chakra-ui/react"
 
 export const Signup = () =>{
 
     return <>
     
     <Container>
-        <Text>Signup here !</Text>
-        <Input type="text" placeholder="username" autoCorrect="on" spellCheck />
-        <Input type="email" placeholder="email" autoCorrect="on" spellCheck />
-        <Input type="password" placeholder="password" autoCorrect="on" spellCheck />
+        <Text color={"teal"} fontSize={"bold"} fontFamily={"cursive"} marginTop={"30px"} marginBottom={"30px"}>Signup here !</Text>
+        <Input type="text" placeholder="username" border={"1px solid teal"} autoCorrect="on" spellCheck /> <br /><br />
+        <Input type="email" placeholder="email"  border={"1px solid teal"} autoCorrect="on" spellCheck /><br /><br />
+        <Input type="password" placeholder="password"  border={"1px solid teal"} autoCorrect="on" spellCheck /><br /><br /><br />
+        <Button colorScheme="teal" width={"100%"}>SignUp</Button>
 
 
     </Container>
-    <h1>hello</h1>
+   
     
     
     </>
