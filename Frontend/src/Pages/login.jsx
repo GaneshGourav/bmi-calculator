@@ -2,7 +2,7 @@ import { Button, Container, Input, Text } from "@chakra-ui/react"
 
 export const Login = () =>{
     return<>
-    <Container>
+    <Container border={"1px solid teal"} padding={"30px"} borderRadius={"8px"} marginTop={"5%"}>
         <Text  color={"teal"}
           fontWeight={"bold"}
           fontFamily={"cursive"}
@@ -10,7 +10,7 @@ export const Login = () =>{
           marginBottom={"30px"}>Login here !</Text>
         <Input type="email" placeholder="Enter your Email" border={"1px solid teal"} autoCorrect="on" spellCheck  autoFocus/><br /><br />
         <Input type="password" placeholder="Enter your Password" border={"1px solid teal"} autoCorrect="on" spellCheck /><br /> <br /> <br />
-        <Button colorScheme="teal" width={"100%"}>Login</Button>
+        <Button colorScheme="teal" width={"100%"}>Login</Button><br /><br />
         <Text>
           If you are new then{" "}
           <span
