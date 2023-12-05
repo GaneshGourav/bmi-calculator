@@ -8,9 +8,17 @@ export const Login = () =>{
           fontFamily={"cursive"}
           marginTop={"30px"}
           marginBottom={"30px"}>Login here !</Text>
-        <Input type="email" placeholder="Enter your Email" autoCorrect="on" spellCheck /><br /><br />
-        <Input type="password" placeholder="Enter your Password" autoCorrect="on" spellCheck /><br /> <br />
-        <Button>Login</Button>
+        <Input type="email" placeholder="Enter your Email" border={"1px solid teal"} autoCorrect="on" spellCheck  autoFocus/><br /><br />
+        <Input type="password" placeholder="Enter your Password" border={"1px solid teal"} autoCorrect="on" spellCheck /><br /> <br /> <br />
+        <Button colorScheme="teal" width={"100%"}>Login</Button>
+        <Text>
+          If you are new then{" "}
+          <span
+            style={{ color: "teal", fontWeight: "bold", fontFamily: "cursive" }}
+          >
+           <a href="/account-signin">SignUp here</a> 
+          </span>{" "}
+        </Text>
     </Container>
     
     
