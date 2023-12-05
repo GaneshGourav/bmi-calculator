@@ -6,7 +6,7 @@ export const Signup = () => {
       <Container>
         <Text
           color={"teal"}
-          fontSize={"bold"}
+          fontWeight={"bold"}
           fontFamily={"cursive"}
           marginTop={"30px"}
           marginBottom={"30px"}
@@ -51,7 +51,7 @@ export const Signup = () => {
           <span
             style={{ color: "teal", fontWeight: "bold", fontFamily: "cursive" }}
           >
-            login here
+           <a href="/account-login">login here</a> 
           </span>{" "}
         </Text>
       </Container>
