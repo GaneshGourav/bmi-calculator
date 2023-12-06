@@ -1,12 +1,29 @@
 import { Button, Container, Input, Text } from "@chakra-ui/react";
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { userLogin } from "../redux/Authentication/action";
+import { USER_LOGIN_ERROR, USER_LOGIN_SUCCESS } from "../redux/Authentication/actionTypes";
 
 export const Login = () => {
     const [email,setEmail] = useState("");
     const [password,setPassword] = useState("");
-    const handleLogin = () =>{
-        const loginDetails ={email,password}
-        console.log(loginDetails)
+    const [data,setData] = useState([])
+    const dispatch = useDispatch();
+    const isLoading = useSelector((store)=>store.signUpReducer.isLoading)
+    const handleLogin = (e) =>{
+      e.preventDefault()
+       
+        dispatch(userLogin()).then((res)=>{
+          dispatch({type:USER_LOGIN_SUCCESS})
+         console.log(res.data.email)
+    setData(res.data);
+    const details = data.find((el)=> el.password === password && el.email===email);
+    console.log("data",details)
+        }).catch((err)=>{
+          dispatch({type:USER_LOGIN_ERROR})
+          console.log(err)
+        })
+        
     }
   return (
     <>
@@ -33,7 +50,7 @@ export const Login = () => {
             autoCorrect="on"
             spellCheck
             autoFocus
-            autoComplete="current-password"
+            
             onChange={(e)=>setEmail(e.target.value)}
           />
           <br />
@@ -44,6 +61,7 @@ export const Login = () => {
             border={"1px solid teal"}
             autoCorrect="on"
             spellCheck
+            autoComplete="current-password"
             onChange={(e)=>setPassword(e.target.value)}
           />
           <br /> <br /> <br />
