@@ -3,12 +3,14 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { userLogin } from "../redux/Authentication/action";
 import { USER_LOGIN_ERROR, USER_LOGIN_SUCCESS } from "../redux/Authentication/actionTypes";
+import { json } from "react-router-dom";
 
 export const Login = () => {
     const [email,setEmail] = useState("");
     const [password,setPassword] = useState("");
     const [data,setData] = useState([])
     const dispatch = useDispatch();
+    // const userdata = json.parse(localStorage.getItem("user")) || []
     const isLoading = useSelector((store)=>store.signUpReducer.isLoading)
     const handleLogin = (e) =>{
       e.preventDefault()
@@ -19,6 +21,8 @@ export const Login = () => {
     setData(res.data);
     const details = data.find((el)=> el.password === password && el.email===email);
     console.log("data",details)
+    
+    localStorage.setItem("user",JSON.stringify(details))
         }).catch((err)=>{
           dispatch({type:USER_LOGIN_ERROR})
           console.log(err)

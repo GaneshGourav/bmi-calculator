@@ -1,8 +1,11 @@
 import { Container, useDisclosure } from "@chakra-ui/react";
-import { NavLink } from "react-router-dom";
+import { NavLink, json } from "react-router-dom";
 import logo from "../Assests/logo.png";
 
 export const Navbar = () => {
+  const data = (localStorage.getItem("user"))||[];
+  
+  console.log(data.email)
   const link = [
     { to: "/", title: "Home" },
     { to: "/bmi-calculation", title: "CalculateBmi" },
@@ -35,6 +38,7 @@ export const Navbar = () => {
             }}
           >
             {el.title}
+
           </NavLink>
         ))}
       </Container>
@@ -63,6 +67,8 @@ export const Navbar = () => {
           LoginIn
         </NavLink>
       </Container>
+      <p>{data.email}</p>
+      <p>hello</p>
     </Container>
   );
 };
