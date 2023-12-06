@@ -45,18 +45,6 @@ export const Navbar = () => {
         maxW={"200px"}
       >
         <NavLink
-          to={"/account-signin"}
-          style={({ isActive, isPending, isTransitioning }) => {
-            return {
-              fontWeight: isActive ? "bold" : "",
-              color: isActive ? "teal" : "pink",
-              viewTransitionName: isTransitioning ? "slide" : "",
-            };
-          }}
-        >
-          signIn
-        </NavLink>
-        <NavLink
           to={"/account-login"}
           style={({ isActive, isPending, isTransitioning }) => {
             return {

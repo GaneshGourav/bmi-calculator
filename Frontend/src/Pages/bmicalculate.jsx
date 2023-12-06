@@ -36,8 +36,7 @@ export const BmiCalculate = () => {
           display: "flex",
           justifyContent: "space-evenly",
           alignItems: "center",
-          marginTop: "30px",
-          border: "1px solid blue",
+          marginTop: "30px"
         }}
       >
         <div
