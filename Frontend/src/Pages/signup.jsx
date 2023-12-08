@@ -13,7 +13,8 @@ export const Signup = () => {
   const dispatch = useDispatch();
   const toast = useToast();
   const navigate = useNavigate()
-  const isloading = useSelector((store)=>store.signUpReducer.isloading)
+  const isloading = useSelector((store)=>store.signUpReducer.isLoading)
+  console.log(isloading)
 
   const handleForm = (e) =>{
     e.preventDefault()
@@ -66,6 +67,7 @@ export const Signup = () => {
           autoCorrect="on"
           spellCheck
           autoFocus
+          required
           onChange={(e)=>setUsername(e.target.value)}
         />{" "}
         <br />
@@ -76,6 +78,7 @@ export const Signup = () => {
           border={"1px solid teal"}
           autoCorrect="on"
           spellCheck
+          required
           onChange={(e)=>setEmail(e.target.value)}
         />
         <br />
@@ -86,14 +89,23 @@ export const Signup = () => {
           border={"1px solid teal"}
           autoCorrect="on"
           spellCheck
+          required
           onChange={(e)=>setPassword(e.target.value)}
         />
         <br />
         <br />
         <br />
-        <Button colorScheme="teal" width={"100%"} type="submit">
-          {isloading?"Submitting...":"SignUp"}
-        </Button>
+        {isloading ?  <Button
+    isLoading
+    loadingText='Loading...'
+    colorScheme='teal'
+    width={"100%"}
+   
+  />
+    
+   :<Button colorScheme="teal" width={"100%"} type="submit">
+        Signup
+        </Button>}
         </form>
         <br />
         <br />

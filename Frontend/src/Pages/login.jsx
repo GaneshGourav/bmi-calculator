@@ -2,33 +2,39 @@ import { Button, Container, Input, Text } from "@chakra-ui/react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { userLogin } from "../redux/Authentication/action";
-import { USER_LOGIN_ERROR, USER_LOGIN_SUCCESS } from "../redux/Authentication/actionTypes";
+import {
+  USER_LOGIN_ERROR,
+  USER_LOGIN_SUCCESS,
+} from "../redux/Authentication/actionTypes";
 import { json } from "react-router-dom";
 
 export const Login = () => {
-    const [email,setEmail] = useState("");
-    const [password,setPassword] = useState("");
-    const [data,setData] = useState([])
-    const dispatch = useDispatch();
-    // const userdata = json.parse(localStorage.getItem("user")) || []
-    const isLoading = useSelector((store)=>store.signUpReducer.isLoading)
-    const handleLogin = (e) =>{
-      e.preventDefault()
-       
-        dispatch(userLogin()).then((res)=>{
-          dispatch({type:USER_LOGIN_SUCCESS})
-         console.log(res.data.email)
-    setData(res.data);
-    const details = data.find((el)=> el.password === password && el.email===email);
-    console.log("data",details)
-    
-    localStorage.setItem("user",JSON.stringify(details))
-        }).catch((err)=>{
-          dispatch({type:USER_LOGIN_ERROR})
-          console.log(err)
-        })
-        
-    }
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [data, setData] = useState([]);
+  const dispatch = useDispatch();
+  // const userdata = json.parse(localStorage.getItem("user")) || []
+  const isLoading = useSelector((store) => store.signUpReducer.isLoading);
+  const handleLogin = (e) => {
+    e.preventDefault();
+
+    dispatch(userLogin())
+      .then((res) => {
+        dispatch({ type: USER_LOGIN_SUCCESS });
+        console.log(res.data.email);
+        setData(res.data);
+        const details = data.find(
+          (el) => el.password === password && el.email === email
+        );
+        console.log("data", details);
+
+        localStorage.setItem("user", JSON.stringify(details));
+      })
+      .catch((err) => {
+        dispatch({ type: USER_LOGIN_ERROR });
+        console.log(err);
+      });
+  };
   return (
     <>
       <Container
@@ -46,7 +52,7 @@ export const Login = () => {
         >
           Login here !
         </Text>
-        <form onSubmit={handleLogin} >
+        <form onSubmit={handleLogin}>
           <Input
             type="email"
             placeholder="Enter your Email"
@@ -54,8 +60,8 @@ export const Login = () => {
             autoCorrect="on"
             spellCheck
             autoFocus
-            
-            onChange={(e)=>setEmail(e.target.value)}
+            required
+            onChange={(e) => setEmail(e.target.value)}
           />
           <br />
           <br />
@@ -65,13 +71,23 @@ export const Login = () => {
             border={"1px solid teal"}
             autoCorrect="on"
             spellCheck
+            required
             autoComplete="current-password"
-            onChange={(e)=>setPassword(e.target.value)}
+            onChange={(e) => setPassword(e.target.value)}
           />
           <br /> <br /> <br />
-          <Button colorScheme="teal" width={"100%"} type="submit">
-            Login
-          </Button>
+          {isLoading ? (
+            <Button
+              isLoading
+              loadingText="Loading..."
+              colorScheme="teal"
+              width={"100%"}
+            />
+          ) : (
+            <Button colorScheme="teal" width={"100%"} type="submit">
+              Login
+            </Button>
+          )}
           <br />
           <br />
         </form>
