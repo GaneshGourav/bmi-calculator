@@ -13,7 +13,6 @@ export const Login = () => {
   const [password, setPassword] = useState("");
   const [data, setData] = useState([]);
   const dispatch = useDispatch();
-  // const userdata = json.parse(localStorage.getItem("user")) || []
   const isLoading = useSelector((store) => store.signUpReducer.isLoading);
   const handleLogin = (e) => {
     e.preventDefault();

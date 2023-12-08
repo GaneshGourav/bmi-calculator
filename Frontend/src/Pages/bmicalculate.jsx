@@ -1,18 +1,34 @@
 import { Button, Container, Input, Text } from "@chakra-ui/react";
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { dataPost } from "../redux/Authentication/action";
+import { POST_DATA_ERROR, POST_DATA_SUCCESS } from "../redux/Authentication/actionTypes";
 
 export const BmiCalculate = () => {
   const [height, setHeight] = useState("");
   const [weight, setWeight] = useState("");
   const [bmi, setBmi] = useState(null);
   const [bmiCategory, setBmiCategory] = useState("");
+  const dispatch = useDispatch();
+  const isLoading = useSelector((store) => store.signUpReducer.isLoading);
+  
   const handleCalculateBmi = (e) => {
     e.preventDefault();
 
     calculateBmi(weight, height);
     console.log(typeof bmi);
+    
+    
   };
 
+  const postData = (data)=>{
+dispatch(dataPost(data)).then((res)=>{
+  dispatch({type:POST_DATA_SUCCESS,payload:res.data})
+}).catch((err)=>{
+  dispatch({type:POST_DATA_ERROR});
+  console.log(err)
+})
+  }
   const calculateBmi = (weight, height) => {
     const BMI = ((weight / height) * 2).toFixed(2);
     setBmi(BMI);
@@ -25,6 +41,8 @@ export const BmiCalculate = () => {
     } else if (BMI >= 30) {
       setBmiCategory("You're Obesity");
     }
+    const data = {bmi,bmiCategory};
+    postData(data)
   };
   console.log(bmi);
   console.log(bmiCategory);
@@ -72,7 +90,7 @@ export const BmiCalculate = () => {
                 width={"100%"}
                 type="submit"
               >
-                Calculate BMI
+                {isLoading?"Calculating":"Calculate BMI"}
               </Button>
             </form>
           </Container>
