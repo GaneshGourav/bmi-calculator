@@ -1,4 +1,7 @@
 import {
+  POST_DATA_ERROR,
+  POST_DATA_REQ,
+  POST_DATA_SUCCESS,
   USER_LOGIN_ERROR,
   USER_LOGIN_REQ,
   USER_SIGNUP_ERROR,
@@ -9,8 +12,9 @@ import {
 const initialState = {
   isLoading: false,
   isError: false,
-  isAuth:false,
+  isAuth: false,
   userData: [],
+  data: [],
 };
 
 export const reducer = (state = initialState, action) => {
@@ -25,8 +29,20 @@ export const reducer = (state = initialState, action) => {
     case USER_LOGIN_REQ:
       return { ...state, isLoading: true, isError: false };
     case USER_SIGNUP_SUCCESS:
-      return { ...state, isLoading: false,isAuth:true, isError: false };
+      return { ...state, isLoading: false, isAuth: true, isError: false };
     case USER_LOGIN_ERROR:
+      return { ...state, isLoading: false, isError: true };
+
+    case POST_DATA_REQ:
+      return { ...state, isLoading: true, isError: false };
+    case POST_DATA_SUCCESS:
+      return {
+        ...state,
+        isLoading: false,
+        data: action.payload,
+        isError: false,
+      };
+    case POST_DATA_ERROR:
       return { ...state, isLoading: false, isError: true };
     default:
       return state;
