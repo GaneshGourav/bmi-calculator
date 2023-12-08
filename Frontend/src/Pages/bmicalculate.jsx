@@ -16,7 +16,7 @@ export const BmiCalculate = () => {
     e.preventDefault();
 
     calculateBmi(weight, height);
-    console.log(typeof bmi);
+  
     
     
   };
