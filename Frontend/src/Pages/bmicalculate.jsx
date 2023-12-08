@@ -10,7 +10,7 @@ export const BmiCalculate = () => {
   const [bmi, setBmi] = useState(null);
   const [bmiCategory, setBmiCategory] = useState("");
   const dispatch = useDispatch();
-  const isLoading = useSelector((store) => store.signUpReducer.isLoading);
+  // const isLoading = useSelector((store) => store.signUpReducer.isLoading);
   
   const handleCalculateBmi = (e) => {
     e.preventDefault();
