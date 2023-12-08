@@ -1,5 +1,5 @@
 import axios from "axios";
-import { USER_LOGIN_REQ, USER_SIGNUP_REQ } from "./actionTypes";
+import { POST_DATA_REQ, USER_LOGIN_REQ, USER_SIGNUP_REQ } from "./actionTypes";
 
 export const userSignup = (userData) => (dispatch) =>{
     dispatch({type:USER_SIGNUP_REQ})
@@ -12,6 +12,7 @@ export const userLogin = () => (dispatch) =>{
     return axios("https://bmi-api-gcmc.onrender.com/signup")
 }
 
-export const dataPost = () => () =>{
-    return axios.post()
+export const dataPost = (data) => (dispatch) =>{
+    dispatch({type:POST_DATA_REQ})
+    return axios.post("https://bmi-api-gcmc.onrender.com/bmiHistory",data)
 }
