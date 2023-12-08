@@ -11,3 +11,7 @@ export const userLogin = () => (dispatch) =>{
     dispatch({type:USER_LOGIN_REQ})
     return axios("https://bmi-api-gcmc.onrender.com/signup")
 }
+
+export const dataPost = () => () =>{
+    return axios.post()
+}
