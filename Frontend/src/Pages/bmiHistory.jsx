@@ -37,10 +37,10 @@ export const BmiHostory = () => {
 
   return (
     <>
-      <TableContainer width={"40%"} margin={"auto"}>
-        <Table variant="striped" colorScheme="teal">
+      <TableContainer width={"40%"} margin={"auto"} border={"1px solid teal"} borderRadius={"5px"} marginTop={"30px"}>
+        <Table variant="striped" colorScheme="teal" size='md'>
           <TableCaption>BMI History</TableCaption>
-          <Thead>
+          <Thead margin={"auto"}>
             <Th>S.I</Th>
             <Th>BMI</Th>
             <Th>Status</Th>
