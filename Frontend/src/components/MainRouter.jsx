@@ -9,6 +9,8 @@ export const MainRoutes = () => {
         <Route path="/bmi-calculation" element={<BmiCalculate/>} />
         <Route path="/account-signin" element={<Signup />} />
         <Route path="/account-login" element={<Login />} />
+        <Route path="/bmi-history" element={<Login />} />
+
       </Routes>
     </>
   );
