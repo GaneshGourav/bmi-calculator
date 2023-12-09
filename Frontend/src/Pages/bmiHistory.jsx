@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { getData } from "../redux/Authentication/action";
 import {
   GET_DATA_ERROR,
@@ -15,10 +15,13 @@ import {
   Td,
   TableCaption,
   TableContainer,
+  Text,
 } from "@chakra-ui/react";
 
 export const BmiHostory = () => {
   const [data, setData] = useState([]);
+  const isLoading = useSelector((store) => store.signUpReducer.isLoading);
+
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -37,8 +40,15 @@ export const BmiHostory = () => {
 
   return (
     <>
-      <TableContainer width={"40%"} margin={"auto"} border={"1px solid teal"} borderRadius={"5px"} marginTop={"30px"}>
-        <Table variant="striped" colorScheme="teal" size='md'>
+    {isLoading?<Text color={"teal"} fontFamily={"cursive"} marginTop={"150px"} fontWeight={"bold"}>DATA IS LOADING, PLEASE WAIT.....</Text>:
+      <TableContainer
+        width={"40%"}
+        margin={"auto"}
+        border={"1px solid teal"}
+        borderRadius={"5px"}
+        marginTop={"30px"}
+      >
+        <Table variant="striped" colorScheme="teal" size="md">
           <TableCaption>BMI History</TableCaption>
           <Thead margin={"auto"}>
             <Th>S.I</Th>
@@ -48,7 +58,7 @@ export const BmiHostory = () => {
           <Tbody>
             {data.map((el) => (
               <Tr>
-                <Td>{el.id}</Td>
+                <Td>{el.id}.</Td>
                 <Td>{el.bmi}</Td>
                 <Td>{el.bmiCategory}</Td>
               </Tr>
@@ -56,6 +66,7 @@ export const BmiHostory = () => {
           </Tbody>
         </Table>
       </TableContainer>
+}
     </>
   );
 };
