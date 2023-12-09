@@ -1,4 +1,6 @@
 import {
+  GET_DATA_REQ,
+  GET_DATA_SUCCESS,
   POST_DATA_ERROR,
   POST_DATA_REQ,
   POST_DATA_SUCCESS,
@@ -39,11 +41,22 @@ export const reducer = (state = initialState, action) => {
       return {
         ...state,
         isLoading: false,
-        data: action.payload,
         isError: false,
       };
     case POST_DATA_ERROR:
       return { ...state, isLoading: false, isError: true };
+
+    case GET_DATA_REQ:
+      return { ...state, isLoading: true, isError: false };
+
+    case GET_DATA_SUCCESS:
+      return {
+        ...state,
+        isLoading: false,
+        data: action.payload,
+        isError: false,
+      };
+
     default:
       return state;
   }
