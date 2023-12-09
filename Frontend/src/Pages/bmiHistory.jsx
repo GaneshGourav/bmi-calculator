@@ -6,16 +6,16 @@ import {
   GET_DATA_SUCCESS,
 } from "../redux/Authentication/actionTypes";
 import {
-    Table,
-    Thead,
-    Tbody,
-    Tfoot,
-    Tr,
-    Th,
-    Td,
-    TableCaption,
-    TableContainer,
-  } from '@chakra-ui/react'
+  Table,
+  Thead,
+  Tbody,
+  Tfoot,
+  Tr,
+  Th,
+  Td,
+  TableCaption,
+  TableContainer,
+} from "@chakra-ui/react";
 
 export const BmiHostory = () => {
   const [data, setData] = useState([]);
@@ -37,27 +37,25 @@ export const BmiHostory = () => {
 
   return (
     <>
-     <TableContainer>
-  <Table variant='striped' colorScheme='teal'>
-    <TableCaption>Imperial to metric conversion factors</TableCaption>
-    <Thead>
-      <Tr>
-        <Th>S.I</Th>
-        <Th>BMI</Th>
-        <Th>Status</Th>
-      </Tr>
-    </Thead>
-    <Tbody>
-      <Tr>
-        <Td>inches</Td>
-        <Td>millimetres (mm)</Td>
-        <Td isNumeric>25.4</Td>
-      </Tr>
-   
-    </Tbody>
-    
-  </Table>
-</TableContainer>
+      <TableContainer width={"40%"} margin={"auto"}>
+        <Table variant="striped" colorScheme="teal">
+          <TableCaption>BMI History</TableCaption>
+          <Thead>
+            <Th>S.I</Th>
+            <Th>BMI</Th>
+            <Th>Status</Th>
+          </Thead>
+          <Tbody>
+            {data.map((el) => (
+              <Tr>
+                <Td>{el.id}</Td>
+                <Td>{el.bmi}</Td>
+                <Td>{el.bmiCategory}</Td>
+              </Tr>
+            ))}
+          </Tbody>
+        </Table>
+      </TableContainer>
     </>
   );
 };
