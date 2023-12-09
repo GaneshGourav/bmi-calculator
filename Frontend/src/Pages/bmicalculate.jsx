@@ -95,16 +95,22 @@ export const BmiCalculate = () => {
             </form>
           </Container>
         </div>
-        <div>
-          <Text color={"teal"} fontFamily={"cursive"} fontWeight={"600"}>
-            {bmi
-              ? `your latest calculated  Bmi is ${bmi} `
-              : "It seems your current body index is not calculated !"}{" "}
+        {isLoading ? (
+          <Text color={"teal"} fontFamily={"cursive"} fontWeight={"bold"}>
+            BMI is calculating, Please wait...
           </Text>
-          <Text color={"teal"} fontFamily={"cursive"} fontWeight={"600"}>
-            {bmi ? `and ${bmiCategory}` : ""}
-          </Text>
-        </div>
+        ) : (
+          <div>
+            <Text color={"teal"} fontFamily={"cursive"} fontWeight={"600"}>
+              {bmi
+                ? `your latest calculated  Bmi is ${bmi} `
+                : "It seems your current body index is not calculated !"}{" "}
+            </Text>
+            <Text color={"teal"} fontFamily={"cursive"} fontWeight={"600"}>
+              {bmi ? `and ${bmiCategory}` : ""}
+            </Text>
+          </div>
+        )}
       </div>
     </>
   );
