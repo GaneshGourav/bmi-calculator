@@ -9,7 +9,7 @@ export const userSignup = (userData) => (dispatch) =>{
 
 export const userLogin = () => (dispatch) =>{
     dispatch({type:USER_LOGIN_REQ})
-    return axios("https://bmi-api-gcmc.onrender.com/signup")
+    return axios.get("https://bmi-api-gcmc.onrender.com/signup")
 }
 
 export const dataPost = (data) => (dispatch) =>{
