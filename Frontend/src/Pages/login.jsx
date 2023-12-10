@@ -27,12 +27,7 @@ export const Login = () => {
           (el) => el.password === password && el.email === email
         );
         console.log(details)
-    if(details==true){
-alert("login Successfully");
-navigate("/bmi-calculate")
-    }else{
-      alert("loginFailed")
-    }
+   
 
         localStorage.setItem("user", JSON.stringify(details));
       })
