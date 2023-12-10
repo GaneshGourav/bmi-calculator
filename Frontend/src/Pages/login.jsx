@@ -6,7 +6,7 @@ import {
   USER_LOGIN_ERROR,
   USER_LOGIN_SUCCESS,
 } from "../redux/Authentication/actionTypes";
-import { json } from "react-router-dom";
+import { json, useNavigate } from "react-router-dom";
 
 export const Login = () => {
   const [email, setEmail] = useState("");
@@ -14,18 +14,25 @@ export const Login = () => {
   const [data, setData] = useState([]);
   const dispatch = useDispatch();
   const isLoading = useSelector((store) => store.signUpReducer.isLoading);
+  const navigate = useNavigate()
   const handleLogin = (e) => {
     e.preventDefault();
 
     dispatch(userLogin())
       .then((res) => {
         dispatch({ type: USER_LOGIN_SUCCESS });
-        console.log(res.data.email);
+      
         setData(res.data);
         const details = data.find(
           (el) => el.password === password && el.email === email
         );
-        console.log("data", details);
+        console.log(details)
+    if(details==true){
+alert("login Successfully");
+navigate("/bmi-calculate")
+    }else{
+      alert("loginFailed")
+    }
 
         localStorage.setItem("user", JSON.stringify(details));
       })
