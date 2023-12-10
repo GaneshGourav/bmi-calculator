@@ -29,7 +29,7 @@ export const Login = () => {
         console.log(details)
    
 
-        localStorage.setItem("user", JSON.stringify(details));
+      
       })
       .catch((err) => {
         dispatch({ type: USER_LOGIN_ERROR });
