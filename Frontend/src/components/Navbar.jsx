@@ -1,9 +1,12 @@
 import { Container, useDisclosure } from "@chakra-ui/react";
 import { NavLink, json } from "react-router-dom";
 import logo from "../Assests/logo.png";
+import { CgProfile } from "react-icons/cg";
+import { useSelector } from "react-redux";
 
 export const Navbar = () => {
   const data = (localStorage.getItem("user"))||[];
+  const isAuth = useSelector((store)=>store.signUpReducer.isAuth)
   
   console.log(data.email)
   const link = [
@@ -64,7 +67,7 @@ export const Navbar = () => {
             };
           }}
         >
-          LoginIn
+          {isAuth ?<CgProfile /> :"LoginIn"}
         </NavLink>
       </Container>
       <p>{data.email}</p>
