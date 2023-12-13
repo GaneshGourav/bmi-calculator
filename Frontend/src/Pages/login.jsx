@@ -14,7 +14,7 @@ export const Login = () => {
   const [data, setData] = useState([]);
   const dispatch = useDispatch();
   const isLoading = useSelector((store) => store.signUpReducer.isLoading);
-  const navigate = useNavigate()
+
   const handleLogin = (e) => {
     e.preventDefault();
 
